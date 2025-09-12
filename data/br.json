@@ -1,0 +1,166 @@
+{
+  "state": "bihar",
+  "year": 2025,
+  "holidays": [
+    {
+      "title": "Guru Govind Singh Jayanti",
+      "date": "2025-01-07"
+    },
+    {
+      "title": "Republic Day",
+      "date": "2025-01-26"
+    },
+    {
+      "title": "Sant Ravidas Jayanti",
+      "date": "2025-02-12"
+    },
+    {
+      "title": "Shivratri",
+      "date": "2025-02-26"
+    },
+    {
+      "title": "Shab-e-Barat",
+      "date": "2025-03-12"
+    },
+    {
+      "title": "Holi",
+      "date": "2025-03-14"
+    },
+    {
+      "title": "Bihar Divas",
+      "date": "2025-03-22"
+    },
+    {
+      "title": "Id-ul-Fitr",
+      "date": "2025-03-31"
+    },
+    {
+      "title": "Mahavir Jayanti",
+      "date": "2025-04-10"
+    },
+    {
+      "title": "Good Friday",
+      "date": "2025-04-18"
+    },
+    {
+      "title": "Dr. Ambedkar Jayanti",
+      "date": "2025-04-14"
+    },
+    {
+      "title": "Budh Purnima",
+      "date": "2025-05-12"
+    },
+    {
+      "title": "Id-ul-Zuha (Bakrid)",
+      "date": "2025-06-07"
+    },
+    {
+      "title": "Muharram",
+      "date": "2025-07-06"
+    },
+    {
+      "title": "Independence Day",
+      "date": "2025-08-15"
+    },
+    {
+      "title": "Janmashtami",
+      "date": "2025-08-16"
+    },
+    {
+      "title": "Milad-un-Nabi",
+      "date": "2025-09-05"
+    },
+    {
+      "title": "Mahatma Gandhi Jayanti",
+      "date": "2025-10-02"
+    },
+    {
+      "title": "Durga Puja (Maha Saptami)",
+      "date": "2025-09-30"
+    },
+    {
+      "title": "Maha Ashtami",
+      "date": "2025-10-01"
+    },
+    {
+      "title": "Maha Navami",
+      "date": "2025-10-02"
+    },
+    {
+      "title": "Dussehra (Vijayadashami)",
+      "date": "2025-10-02"
+    },
+    {
+      "title": "Kali Puja / Deepavali",
+      "date": "2025-10-21"
+    },
+    {
+      "title": "Chhath Puja",
+      "date": "2025-10-28"
+    },
+    {
+      "title": "Christmas Day",
+      "date": "2025-12-25"
+    },
+    {
+      "title": "New Year’s Day",
+      "date": "2025-01-01"
+    },
+    {
+      "title": "Makar Sankranti",
+      "date": "2025-01-14"
+    },
+    {
+      "title": "Basant Panchami",
+      "date": "2025-02-02"
+    },
+    {
+      "title": "Valmiki Jayanti",
+      "date": "2025-02-23"
+    },
+    {
+      "title": "Holika Dahan",
+      "date": "2025-03-13"
+    },
+    {
+      "title": "Ram Navami",
+      "date": "2025-04-06"
+    },
+    {
+      "title": "May Day",
+      "date": "2025-05-01"
+    },
+    {
+      "title": "Raksha Bandhan",
+      "date": "2025-08-09"
+    },
+    {
+      "title": "Ganesh Chaturthi",
+      "date": "2025-08-27"
+    },
+    {
+      "title": "Karva Chauth",
+      "date": "2025-10-09"
+    },
+    {
+      "title": "Govardhan Puja",
+      "date": "2025-10-20"
+    },
+    {
+      "title": "Bhai Dooj",
+      "date": "2025-10-22"
+    },
+    {
+      "title": "Guru Nanak Jayanti",
+      "date": "2025-11-05"
+    },
+    {
+      "title": "Christmas Eve",
+      "date": "2025-12-24"
+    },
+    {
+      "title": "New Year’s Eve",
+      "date": "2025-12-31"
+    }
+  ]
+}
