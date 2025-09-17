@@ -5,6 +5,8 @@ import timeGridPlugin from "@fullcalendar/timegrid";
 import listPlugin from "@fullcalendar/list";
 import { useEffect, useState } from "react";
 import styles from "./Home.module.scss";
+import "tui-calendar/dist/tui-calendar.css";
+import "@toast-ui/calendar/dist/toastui-calendar.min.css";
 
 const Home = () => {
   // const events: EventInput[] = [
@@ -15,19 +17,39 @@ const Home = () => {
   const [holidays, setHolidays] = useState<{ title: string; date: string }[]>(
     []
   );
-  const [selected,setSelected] = useState('')
+  const [selected, setSelected] = useState("");
 
-  useEffect(() => {
-    fetch(`/api/holidays/${selected}`)
-      .then((res) => res.json())
-      .then((data) => setHolidays(data.holidays || []))
-      .catch((err) => console.error(err));
-  }, [selected]);
+useEffect(() => {
+  if (!selected) return;
+  fetch(`/api/holidays/${selected}`)
+    .then((res) => res.json())
+    .then((data) => {
+      const gazettedEvents = data.holidays.gazetted.map((h: any) => ({
+        title: h.title,
+        date: h.date,
+        color: "#1e90ff",
+        className: `${styles.gazettedEvent}`,
+      }));
+
+      const restrictedEvents = data.holidays.restricted.map((h: any) => ({
+        title: h.title,
+        date: h.date,
+        color: "#ff4040",
+        className: `${styles.restrictedEvent}`,
+      }));
+
+      setHolidays([...gazettedEvents, ...restrictedEvents]);
+    })
+    .catch((err) => console.error(err));
+}, [selected]);
   console.log("events", holidays);
 
   return (
     <div className="App">
-      <select className={styles.stateDropdown} onChange={(e)=>setSelected(e.target.value)}>
+      <select
+        className={styles.stateDropdown}
+        onChange={(e) => setSelected(e.target.value)}
+      >
         <option value="">Select State</option>
         <option value="br">Bihar</option>
         <option value="ap">Andhra Pradesh</option>
@@ -43,7 +65,15 @@ const Home = () => {
         }}
         events={holidays}
         height="auto"
+        windowResize={(arg) => {
+          if (window.innerWidth < 768) {
+            arg.view.calendar.changeView("timeGridDay"); // 👈 mobile = daily view
+          } else {
+            arg.view.calendar.changeView("dayGridMonth");
+          }
+        }}
       />
+      <legend className={styles.legend}>🔵 Gazetted | 🔴 Restricted</legend>
     </div>
   );
 };
