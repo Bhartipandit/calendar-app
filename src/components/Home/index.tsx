@@ -5,8 +5,6 @@ import timeGridPlugin from "@fullcalendar/timegrid";
 import listPlugin from "@fullcalendar/list";
 import { useEffect, useState } from "react";
 import styles from "./Home.module.scss";
-import "tui-calendar/dist/tui-calendar.css";
-import "@toast-ui/calendar/dist/toastui-calendar.min.css";
 
 const Home = () => {
   // const events: EventInput[] = [
