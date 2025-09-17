@@ -15,7 +15,7 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
     const holidays = JSON.parse(fileData);
 
     res.status(200).json(holidays);
-  } catch (err) {
+  } catch {
     res.status(404).json({ error: "No data found for state" });
   }
 }

@@ -6,6 +6,11 @@ import listPlugin from "@fullcalendar/list";
 import { useEffect, useState } from "react";
 import styles from "./Home.module.scss";
 
+type Holiday = {
+  title: string;
+  date: string;
+};
+
 const Home = () => {
   // const events: EventInput[] = [
   //   { title: 'Meeting', date: '2025-09-05' },
@@ -17,30 +22,29 @@ const Home = () => {
   );
   const [selected, setSelected] = useState("");
 
-useEffect(() => {
-  if (!selected) return;
-  fetch(`/api/holidays/${selected}`)
-    .then((res) => res.json())
-    .then((data) => {
-      const gazettedEvents = data.holidays.gazetted.map((h: any) => ({
-        title: h.title,
-        date: h.date,
-        color: "#1e90ff",
-        className: `${styles.gazettedEvent}`,
-      }));
+  useEffect(() => {
+    if (!selected) return;
+    fetch(`/api/holidays/${selected}`)
+      .then((res) => res.json())
+      .then((data) => {
+        const gazettedEvents = data.holidays.gazetted.map((h: Holiday) => ({
+          title: h.title,
+          date: h.date,
+          color: "#1e90ff",
+          className: `${styles.gazettedEvent}`,
+        }));
 
-      const restrictedEvents = data.holidays.restricted.map((h: any) => ({
-        title: h.title,
-        date: h.date,
-        color: "#ff4040",
-        className: `${styles.restrictedEvent}`,
-      }));
+        const restrictedEvents = data.holidays.restricted.map((h: Holiday) => ({
+          title: h.title,
+          date: h.date,
+          color: "#ff4040",
+          className: `${styles.restrictedEvent}`,
+        }));
 
-      setHolidays([...gazettedEvents, ...restrictedEvents]);
-    })
-    .catch((err) => console.error(err));
-}, [selected]);
-  console.log("events", holidays);
+        setHolidays([...gazettedEvents, ...restrictedEvents]);
+      })
+      .catch((err) => console.error(err));
+  }, [selected]);
 
   return (
     <div className="App">
