@@ -1,15 +1,18 @@
-import { ReactNode } from "react"
+"use client";
+
+import { SessionProvider } from "next-auth/react";
+import { ReactNode } from "react";
 
 interface RevampedContainerProps {
-    children: ReactNode;
+  children: ReactNode;
 }
 
-const RevampedContainer: React.FC<RevampedContainerProps> = ({children}) => {
-    return (
-        <>
-            {children}
-        </>
-    )
-}
+const RevampedContainer: React.FC<RevampedContainerProps> = ({ children }) => {
+  return (
+    <>
+      <SessionProvider>{children}</SessionProvider>
+    </>
+  );
+};
 
-export default RevampedContainer
+export default RevampedContainer;

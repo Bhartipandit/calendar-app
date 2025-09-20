@@ -37,15 +37,6 @@
 }
 
 .gazettedEvent {
-  background-color: #ff4040 !important;
-  color: #fff !important;
-  font-size: 0.6rem;
-  border-radius: 4px;
-  padding: 2px;
-  text-wrap: wrap;
-}
-
-.restrictedEvent {
   background-color: #1e90ff !important;
   color: #fff !important;
   font-size: 0.6rem;
@@ -54,6 +45,89 @@
   text-wrap: wrap;
 }
 
+.restrictedEvent {
+  background-color: #ff4040 !important;
+  color: #fff !important;
+  font-size: 0.6rem;
+  border-radius: 4px;
+  padding: 2px;
+  text-wrap: wrap;
+}
+
+.notesClass {
+  font-size: 0.6rem !important;
+  text-wrap: wrap;
+}
+
 .legend {
   padding-top: 20px;
+}
+
+.noteBox {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1rem;
+  background: #ffffff;
+  border-top: 1px solid #e5e7eb;
+  box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.05);
+  z-index: 5;
+
+  .noteInput {
+    flex: 1;
+    padding: 0.4em 0.65em;
+    font-size: 1.1em;
+    border: 1px solid var(--fc-button-border-color, #ddd);
+    border-radius: 0.25em 0 0 0.25em; // left-rounded like FC button
+    outline: none;
+
+    &:focus {
+      border-color: var(--fc-button-border-color, #2563eb);
+      box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.2);
+    }
+  }
+
+  button {
+    background-color: var(--fc-button-bg-color, #2c3e50);
+    border: 1px solid var(--fc-button-border-color, #2c3e50);
+    color: var(--fc-button-text-color, #fff);
+    border-radius: 0.25em; // right-rounded like FC button
+    padding: 0.4em 0.65em;
+    font-size: 1em;
+    font-weight: 400;
+    line-height: 1.5;
+    cursor: pointer;
+    margin-left: -1px; // removes double border between input and button
+    transition: background-color 0.2s ease;
+
+    &:hover:not(:disabled) {
+      background-color: var(--fc-button-hover-bg-color, #34495e);
+      border-color: var(--fc-button-hover-border-color, #34495e);
+    }
+
+    &:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+  }
+}
+
+.flex {
+  display: flex;
+  justify-content: space-between;
+}
+
+.fc-day-sun .fc-scrollgrid-sync-inner .fc-col-header-cell-cushion {
+  color: red !important;
+  font-weight: bold;
+}
+
+/* Sunday date numbers in month view */
+.fc-day-sun .fc-daygrid-day-frame .fc-daygrid-day-top .fc-daygrid-day-number {
+  color: red !important;
+  font-weight: bold;
 }
