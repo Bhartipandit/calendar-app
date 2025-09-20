@@ -16,6 +16,21 @@ type Holiday = {
   color?: string;
 };
 
+type GoogleCalendarEvent = {
+  id: string;
+  summary: string;
+  start: {
+    date?: string; // all-day events
+    dateTime?: string; // timed events
+  };
+  end: {
+    date?: string;
+    dateTime?: string;
+  };
+  className?: string;
+  color?: string;
+};
+
 const Home = () => {
   // const events: EventInput[] = [
   //   { title: 'Meeting', date: '2025-09-05' },
@@ -77,11 +92,13 @@ const Home = () => {
       const data = await res.json();
 
       const mappedEvents: EventInput[] =
-        data.items?.map((event: any) => ({
+        data.items?.map((event: GoogleCalendarEvent) => ({
           id: event.id,
           title: event.summary,
-          start: event.start.dateTime || event.start.date,
-          end: event.end.dateTime || event.end.date,
+          start: event.start.date || event?.start?.dateTime?.split("T")[0], // get only date part
+          end: event.end.date || event.end.dateTime?.split("T")[0],
+          className: `${styles.notesClass}`,
+          color: "#32CD32",
         })) || [];
 
       setCalendarEvents(mappedEvents);
