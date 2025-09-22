@@ -1,15 +1,12 @@
 "use client";
 import FullCalendar from "@fullcalendar/react";
 import dayGridPlugin from "@fullcalendar/daygrid";
-import timeGridPlugin from "@fullcalendar/timegrid";
-import listPlugin from "@fullcalendar/list";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import styles from "./Home.module.scss";
 import interactionPlugin from "@fullcalendar/interaction";
 import { useSession, signIn, signOut } from "next-auth/react";
 import type { EventInput } from "@fullcalendar/core";
 import type { DateClickArg } from "@fullcalendar/interaction";
-
 type Holiday = {
   title: string;
   date: string;
@@ -52,6 +49,45 @@ const Home = () => {
     return [];
   });
   const { data: session } = useSession();
+
+  const calendarRef = useRef<FullCalendar | null>(null);
+  const containerRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    if (!containerRef.current) return;
+
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    const handleTouchStart = (e: TouchEvent) => {
+      touchStartX = e.changedTouches[0].screenX;
+    };
+
+    const handleTouchEnd = (e: TouchEvent) => {
+      touchEndX = e.changedTouches[0].screenX;
+      handleGesture();
+    };
+
+    const handleGesture = () => {
+      const calendarApi = calendarRef.current?.getApi();
+      if (!calendarApi) return;
+
+      if (touchEndX < touchStartX - 50) {
+        calendarApi.next();
+      } else if (touchEndX > touchStartX + 50) {
+        calendarApi.prev();
+      }
+    };
+
+    const div = containerRef.current;
+    div.addEventListener("touchstart", handleTouchStart);
+    div.addEventListener("touchend", handleTouchEnd);
+
+    return () => {
+      div.removeEventListener("touchstart", handleTouchStart);
+      div.removeEventListener("touchend", handleTouchEnd);
+    };
+  }, []);
 
   useEffect(() => {
     if (!selected) return;
@@ -169,25 +205,21 @@ const Home = () => {
           Sign out
         </button>
       </div>
-      <FullCalendar
-        plugins={[dayGridPlugin, timeGridPlugin, listPlugin, interactionPlugin]}
-        initialView="dayGridMonth"
-        headerToolbar={{
-          left: "prev,next today",
-          center: "title",
-          right: "dayGridMonth,timeGridWeek,timeGridDay",
-        }}
-        events={allEvents}
-        height="auto"
-        windowResize={(arg) => {
-          if (window.innerWidth < 768) {
-            arg.view.calendar.changeView("timeGridDay"); // 👈 mobile = daily view
-          } else {
-            arg.view.calendar.changeView("dayGridMonth");
-          }
-        }}
-        dateClick={handleDateClick}
-      />
+      <div ref={containerRef}>
+        <FullCalendar
+          ref={calendarRef}
+          plugins={[dayGridPlugin, interactionPlugin]}
+          initialView="dayGridMonth"
+          headerToolbar={{
+            left: "prev",
+            center: "title",
+            right: "next",
+          }}
+          events={allEvents}
+          height="auto"
+          dateClick={handleDateClick}
+        />
+      </div>
       <legend className={styles.legend}>🔵 Gazetted | 🔴 Restricted</legend>
 
       <div className={styles.noteBox}>
