@@ -162,7 +162,7 @@ const Home = () => {
       );
       const data: Note[] = await res.json();
       setNotes(
-        data.map((note: any) => ({
+        data.map((note: Note) => ({
           ...note,
           className: styles.notesClass,
           allDay: true,
