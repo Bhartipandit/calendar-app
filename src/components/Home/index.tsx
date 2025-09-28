@@ -13,6 +13,15 @@ type Holiday = {
   color?: string;
 };
 
+type Note = {
+  id?: string;
+  title: string;
+  date: string;
+  color: string;
+  className?: string;
+  allDay?: boolean;
+};
+
 type GoogleCalendarEvent = {
   id: string;
   summary: string;
@@ -41,13 +50,7 @@ const Home = () => {
   const [calendarEvents, setCalendarEvents] = useState<EventInput[]>([]);
   const [selectedDate, setSelectedDate] = useState<string>(""); // 👈 for currently clicked date
   const [noteText, setNoteText] = useState("");
-  const [notes, setNotes] = useState(() => {
-    if (typeof window !== "undefined") {
-      const saved = localStorage.getItem("notes");
-      return saved ? JSON.parse(saved) : [];
-    }
-    return [];
-  });
+  const [notes, setNotes] = useState<Note[]>([]);
   const { data: session } = useSession();
 
   const calendarRef = useRef<FullCalendar | null>(null);
@@ -91,7 +94,7 @@ const Home = () => {
 
   useEffect(() => {
     if (!selected) return;
-    fetch(`/api/holidays/${selected}`)
+    fetch(`${process.env.NEXT_PUBLIC_API_URL}/holidays/${selected}`)
       .then((res) => res.json())
       .then((data) => {
         const gazettedEvents = data.holidays.gazetted.map((h: Holiday) => ({
@@ -147,16 +150,58 @@ const Home = () => {
     setSelectedDate(info.dateStr);
   };
 
-  const handleAddNote = () => {
-    if (!noteText || !selectedDate) return;
-    const newNote = {
-      title: noteText,
-      date: selectedDate,
-      color: "#32CD32", // green
-      className: styles.notesClass,
+  useEffect(() => {
+    if (!session) return;
+
+    const fetchNotes = async () => {
+      const res = await fetch(
+        `${process.env.NEXT_PUBLIC_API_URL}/notes?user_id=${session?.user?.email}`,
+        {
+          cache: "no-store",
+        }
+      );
+      const data: Note[] = await res.json();
+      setNotes(
+        data.map((note: any) => ({
+          ...note,
+          className: styles.notesClass,
+          allDay: true,
+        }))
+      );
     };
-    setNotes([...notes, newNote]);
-    setNoteText(""); // reset textbox
+
+    fetchNotes();
+  }, [session]);
+
+  const handleAddNote = async () => {
+    if (!noteText || !selectedDate) return;
+
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_API_URL}/notes?user_id=${session?.user?.email}`,
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          title: noteText,
+          date: selectedDate,
+          color: "#32CD32",
+        }),
+      }
+    );
+
+    const data = await res.json();
+
+    const newNote: Note = {
+      id: data.id,
+      title: data.title,
+      date: data.date,
+      color: data.color,
+      className: styles.notesClass,
+      allDay: true,
+    };
+
+    setNotes((prev) => [...prev, newNote]);
+    setNoteText("");
   };
 
   //   useEffect(() => {

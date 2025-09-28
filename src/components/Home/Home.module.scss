@@ -61,6 +61,7 @@
 
 .legend {
   padding-top: 20px;
+  padding-bottom: 75px;
 }
 
 .noteBox {
@@ -76,12 +77,11 @@
   border-top: 1px solid #e5e7eb;
   box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.05);
   z-index: 5;
-  margin-top: 50px;
 
   .noteInput {
     flex: 1;
     padding: 0.4em 0.65em;
-    font-size: 1.2em;
+    font-size: 1.1em;
     border: 1px solid var(--fc-button-border-color, #ddd);
     border-radius: 0.25em 0 0 0.25em; // left-rounded like FC button
     outline: none;
