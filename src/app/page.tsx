@@ -1,12 +1,10 @@
-import Image from "next/image";
-import styles from "./page.module.css";
 import RevampedContainer from "@/redux/common/layouts/revampedContainer";
-import HomePage from "@/redux/features/homescreen/container/Home";
+import Home from "@/components/Home";
 
-export default function Home() {
+export default function Page() {
   return (
     <RevampedContainer>
-      <HomePage/>
+      <Home />
     </RevampedContainer>
   );
 }
