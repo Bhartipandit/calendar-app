@@ -7,7 +7,7 @@ import interactionPlugin from "@fullcalendar/interaction";
 import type { EventInput } from "@fullcalendar/core";
 import type { DateClickArg } from "@fullcalendar/interaction";
 import { auth, provider } from "@/lib/firebase";
-import { onAuthStateChanged, signInWithPopup, signOut, getIdToken, GoogleAuthProvider, reauthenticateWithPopup, setPersistence, browserLocalPersistence } from "firebase/auth";
+import { onAuthStateChanged, signInWithPopup, signOut, getIdToken, GoogleAuthProvider, reauthenticateWithPopup, setPersistence, browserLocalPersistence, User } from "firebase/auth";
 
 type Holiday = { title: string; date: string; color?: string };
 type Note = { id?: string; title: string; date: string; color: string; className?: string; allDay?: boolean };
@@ -20,7 +20,7 @@ const Home = () => {
   const [selectedDate, setSelectedDate] = useState<string>("");
   const [noteText, setNoteText] = useState("");
   const [notes, setNotes] = useState<Note[]>([]);
-  const [user, setUser] = useState<any>(null);
+  const [user, setUser] = useState<User | null>(null);
   const [token, setToken] = useState<string>("");
 
   const calendarRef = useRef<FullCalendar | null>(null);
