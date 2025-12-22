@@ -3,87 +3,53 @@
   "year": 2025,
   "holidays": {
     "gazetted": [
-      {
-        "title": "Makara Sankranti",
-        "date": "2025-01-14"
-      },
-      {
-        "title": "Republic Day",
-        "date": "2025-01-26"
-      },
-      {
-        "title": "Mahashivaratri",
-        "date": "2025-02-26"
-      },
-      {
-        "title": "Holi",
-        "date": "2025-03-14"
-      },
-      {
-        "title": "Ugadi",
-        "date": "2025-03-30"
-      },
-      {
-        "title": "Eid-ul-Fitr (Ramzan)",
-        "date": "2025-03-31"
-      },
-      {
-        "title": "Annual Closing Day",
-        "date": "2025-04-01"
-      },
-      {
-        "title": "Srirama Navami",
-        "date": "2025-04-06"
-      },
-      {
-        "title": "Dr. B.R. Ambedkar's Birthday",
-        "date": "2025-04-14"
-      },
-      {
-        "title": "Good Friday",
-        "date": "2025-04-18"
-      },
-      {
-        "title": "May Day",
-        "date": "2025-05-01"
-      },
-      {
-        "title": "Bakrid (Eid-Ul-Zuha)",
-        "date": "2025-06-07"
-      },
-      {
-        "title": "Moharrum",
-        "date": "2025-07-06"
-      },
-      {
-        "title": "Independence Day",
-        "date": "2025-08-15"
-      },
-      {
-        "title": "Sri Krishnaashtami",
-        "date": "2025-08-16"
-      },
-      {
-        "title": "Vinayaka Chavithi",
-        "date": "2025-08-27"
-      },
-      {
-        "title": "Milad-un-Nabi",
-        "date": "2025-09-05"
-      },
-      {
-        "title": "Mahatma Gandhi Jayanthi/Vijayadasami",
-        "date": "2025-10-02"
-      },
-      {
-        "title": "Deepavali",
-        "date": "2025-10-20"
-      },
-      {
-        "title": "Christmas",
-        "date": "2025-12-25"
-      }
+      { "title": "Bhogi", "date": "2025-01-14" },
+      { "title": "Makara Sankranti", "date": "2025-01-15" },
+      { "title": "Kanuma", "date": "2025-01-16" },
+      { "title": "Republic Day", "date": "2025-01-26" },
+      { "title": "Mahasivaratri", "date": "2025-03-08" },
+      { "title": "Holi", "date": "2025-03-25" },
+      { "title": "Good Friday", "date": "2025-03-29" },
+      { "title": "Babu Jagjivan Ram's Birthday", "date": "2025-04-05" },
+      { "title": "Ugadi", "date": "2025-04-09" },
+      { "title": "Eid-Ul-Fitr (Ramzan)", "date": "2025-04-11" },
+      { "title": "Dr. B.R. Ambedkar's Birthday", "date": "2025-04-14" },
+      { "title": "Sree Rama Navami", "date": "2025-04-17" },
+      { "title": "Bakrid (Eid-Ul-Zuha)", "date": "2025-06-17" },
+      { "title": "Moharrum", "date": "2025-07-17" },
+      { "title": "Independence Day", "date": "2025-08-15" },
+      { "title": "Sri Krishnastami", "date": "2025-08-26" },
+      { "title": "Vinayaka Chavithi", "date": "2025-09-07" },
+      { "title": "Eid Milad-Un-Nabi", "date": "2025-09-16" },
+      { "title": "Durgastami", "date": "2025-10-11" },
+      { "title": "Vijaya Dasami", "date": "2025-10-12" },
+      { "title": "Deepavali", "date": "2025-10-31" },
+      { "title": "Christmas", "date": "2025-12-25" },
+      { "title": "MAHATMA GANDHI JAYANTHI", "date": "2025-10-02" }
     ],
-    "restricted": []
+    "restricted": [
+      { "title": "New Year’s Day", "date": "2025-01-01" },
+      { "title": "Birthday of Hazrath Ali (R.A.)", "date": "2025-01-25" },
+      { "title": "Shab-e-Meraj", "date": "2025-02-07" },
+      { "title": "Shab-e-Barath", "date": "2025-02-25" },
+      { "title": "Shahadat Hazrat Ali (R.A.)", "date": "2025-04-01" },
+      { "title": "Mahavir Jayanthi", "date": "2025-04-21" },
+      { "title": "Basava Jayanthi", "date": "2025-05-10" },
+      { "title": "Buddha Purnima", "date": "2025-05-23" },
+      { "title": "Eid-e-Gadeer", "date": "2025-06-25" },
+      { "title": "Rathayatra", "date": "2025-07-07" },
+      { "title": "9th Moharram", "date": "2025-07-16" },
+      { "title": "Parsi New Year’s Day", "date": "2025-08-15" },
+      { "title": "Varalakshmi Vratam", "date": "2025-08-16" },
+      { "title": "Arbaeen", "date": "2025-08-25" },
+      { "title": "Mahalaya Amavasya", "date": "2025-10-02" },
+      { "title": "Yaz Dahum Shareef", "date": "2025-10-15" },
+      { "title": "Kartika Purnima / Guru Nanak Jayanthi", "date": "2025-11-15" },
+      { "title": "Hazrat Syed Mohammed Juvanpur Mehdi’s Birthday", "date": "2025-11-16" },
+      { "title": "Christmas Eve", "date": "2025-12-24" },
+      { "title": "Boxing Day", "date": "2025-12-26" },
+      { "title": "Shab-e-Qadar", "date": "2025-04-07" },
+      { "title": "Jamatul Veda", "date": "2025-04-05" }
+    ]
   }
 }

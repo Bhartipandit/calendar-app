@@ -1,0 +1,81 @@
+{
+  "state": "assam",
+  "year": 2025,
+  "holidays": {
+    "gazetted": [
+      { "title": "Magh Bihu / Pongal", "date": "2025-01-15" },
+      { "title": "Republic Day", "date": "2025-01-26" },
+      { "title": "Holi", "date": "2025-03-25" },
+      { "title": "Good Friday", "date": "2025-03-29" },
+      { "title": "Id-ul-Fitr", "date": "2025-04-11" },
+      { "title": "Mahavir Jayanti", "date": "2025-04-21" },
+      { "title": "Budha Purnima", "date": "2025-05-23" },
+      { "title": "Id-ul-Zuha (Bakrid)", "date": "2025-06-17" },
+      { "title": "Muharram", "date": "2025-07-17" },
+      { "title": "Independence Day", "date": "2025-08-15" },
+      { "title": "Mahatma Gandhi's Birthday", "date": "2025-10-02" },
+      { "title": "Dusshera (Mahashtami/Mahanavami)", "date": "2025-10-11" },
+      { "title": "Dussehra", "date": "2025-10-12" },
+      { "title": "Diwali (Deepavali)", "date": "2025-10-31" },
+      { "title": "Guru Nanak's Jayanti", "date": "2025-11-15" },
+      {
+        "title": "Milad-un-Nabi or Id-e-Milad (Birthday of Prophet Mohammad)",
+        "date": "2025-09-16"
+      },
+      { "title": "Christmas", "date": "2025-12-25" }
+    ],
+    "restricted": [
+      { "title": "New Year's Day", "date": "2025-01-01" },
+      { "title": "Lohri", "date": "2025-01-13" },
+      { "title": "Makar Sankranti", "date": "2025-01-14" },
+      { "title": "Guru Gobind Singh's Birthday", "date": "2025-01-17" },
+      { "title": "Sri Panchami / Basant Panchami", "date": "2025-02-14" },
+      { "title": "Shivaji Jayanti", "date": "2025-02-19" },
+      { "title": "Guru Ravi Das Birthday", "date": "2025-02-24" },
+      { "title": "Birthday of Swami Dayananda Saraswati", "date": "2025-03-06" },
+      { "title": "Maha Shivaratri", "date": "2025-03-08" },
+      { "title": "Holika Dahan", "date": "2025-03-24" },
+      { "title": "Dolyatra", "date": "2025-03-25" },
+      {
+        "title": "Chaitra Sukhladi / Gudi Padava / Ugadi / Cheti Chand",
+        "date": "2025-04-09"
+      },
+      { "title": "Vaisakhi / Vishu", "date": "2025-04-13" },
+      {
+        "title": "Meshadi (Tamil New Year) / Vaisakhadi (Bengal) / Bahag Bihu",
+        "date": "2025-04-14"
+      },
+      { "title": "Ram Navami", "date": "2025-04-17" },
+      { "title": "Birthday of Guru Rabindranath Tagore", "date": "2025-05-08" },
+      { "title": "Rath Yatra", "date": "2025-07-07" },
+      { "title": "Parsi New Year's Day / Nauraj", "date": "2025-08-15" },
+      { "title": "Raksha Bandhan", "date": "2025-08-19" },
+      { "title": "Janmashtami (Vaishnava)", "date": "2025-08-26" },
+      {
+        "title": "Ganesh Chaturthi / Vinayaka Chaturthi",
+        "date": "2025-09-07"
+      },
+      { "title": "Onam or Thiru Onam Day", "date": "2025-09-15" },
+      { "title": "Hazrath Ali's Birthday", "date": "2025-01-25" },
+      { "title": "Dashahara (Saptami)", "date": "2025-10-10" },
+      { "title": "Maharishi Valmiki Jayanti", "date": "2025-10-17" },
+      {
+        "title": "Karaka Chaturthi (Karwa Chouth)",
+        "date": "2025-10-20"
+      },
+      { "title": "Naraka Chaturdasi", "date": "2025-10-31" },
+      { "title": "Govardhan Puja", "date": "2025-11-02" },
+      { "title": "Bhai Duj", "date": "2025-11-03" },
+      {
+        "title": "Pratihar Shashthi or Surya Shashthi (Chhat Puja)",
+        "date": "2025-11-07"
+      },
+      {
+        "title": "Guru Teg Bahadur's Ji Martyrdom Day",
+        "date": "2025-11-24"
+      },
+      { "title": "Easter Sunday", "date": "2025-03-31" },
+      { "title": "Christmas Eve", "date": "2025-12-24" }
+    ]
+  }
+}

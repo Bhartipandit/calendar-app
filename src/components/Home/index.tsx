@@ -182,6 +182,31 @@ const handleSignOut = async () => {
           <option value="br">Bihar</option>
           <option value="ap">Andhra Pradesh</option>
           <option value="wb">West Bengal</option>
+          <option value="ar">Arunachal Pradesh</option>
+          <option value="as">Assam</option>
+          <option value="ch">Chhattisgarh</option>
+          {/* <option value="go">Goa</option>
+          <option value="gj">Gujarat</option>
+          <option value="hr">Haryana</option>
+          <option value="hp">Himachal Pradesh</option>
+          <option value="jk">jharkhand</option>
+          <option value="ka">Karnataka</option>
+          <option value="ke">Kerala</option>
+          <option value="mp">Madhya Pradesh</option>
+          <option value="mh">Maharashtra</option>
+          <option value="mn">Manipur</option>
+          <option value="mg">Meghalaya</option>
+          <option value="mz">Mizoram</option>
+          <option value="ng">Nagaland</option>
+          <option value="od">Odisha</option>
+          <option value="pj">Punjab</option>
+          <option value="rj">Rajasthan</option>
+          <option value="sk">Sikkim</option>
+          <option value="tn">Tamil Nadu</option>
+          <option value="tg">Telangana</option>
+          <option value="tr">Tripura</option>
+          <option value="up">Uttar Pradesh</option>
+          <option value="uk">Uttrakhand</option> */}
         </select>
         <button onClick={handleSignOut} style={{ backgroundColor: "#e63946", color: "white", border: "none", borderRadius: "6px", padding: "6px 12px", cursor: "pointer", fontSize: "14px", fontWeight: 500, height: "36px" }}>
           Sign out
