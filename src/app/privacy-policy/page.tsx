@@ -1,4 +1,4 @@
-export default privacyPolicyPage = () => {
+const PrivacyPolicyPage = () => {
   return (
     <>
       <p>Privacy Policy This application uses Google OAuth to access Google
@@ -17,3 +17,5 @@ export default privacyPolicyPage = () => {
     </>
   );
 };
+
+export default PrivacyPolicyPage;

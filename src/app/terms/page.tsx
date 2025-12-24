@@ -1,4 +1,4 @@
-export default termsPage = () => {
+const TermsPage = () => {
   return (
     <>
       <p>Terms of Service
@@ -16,3 +16,5 @@ export default termsPage = () => {
     </>
   );
 };
+
+export default TermsPage;
