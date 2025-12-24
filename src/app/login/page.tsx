@@ -55,6 +55,11 @@ export default function LoginPage() {
           <span>·</span>
           <a href="/terms">Terms of Service</a>
         </footer>
+        <p style={styles.meta}>
+        Calendar App is developed and operated by Bharti Pandit.
+        <br />
+        Hosted on Vercel.
+      </p>
       </div>
     </main>
   );
@@ -69,6 +74,7 @@ const styles: {
   description: CSSProperties;
   button: CSSProperties;
   footer: CSSProperties;
+  meta: CSSProperties;
 } = {
   container: {
     minHeight: "100vh",
@@ -113,5 +119,12 @@ const styles: {
     display: "flex",
     justifyContent: "center",
     gap: "8px",
+  },
+  meta: {
+    marginTop: "16px",
+    fontSize: "10px",
+    color: "#666",
+    textAlign: "center" as const,
+    maxWidth: "420px",
   },
 };
