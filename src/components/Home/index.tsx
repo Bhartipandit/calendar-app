@@ -7,11 +7,33 @@ import interactionPlugin from "@fullcalendar/interaction";
 import type { EventInput } from "@fullcalendar/core";
 import type { DateClickArg } from "@fullcalendar/interaction";
 import { auth, provider } from "@/lib/firebase";
-import { onAuthStateChanged, signInWithPopup, signOut, getIdToken, GoogleAuthProvider, reauthenticateWithPopup, setPersistence, browserLocalPersistence, User } from "firebase/auth";
+import {
+  onAuthStateChanged,
+  signInWithPopup,
+  signOut,
+  getIdToken,
+  GoogleAuthProvider,
+  reauthenticateWithPopup,
+  setPersistence,
+  browserLocalPersistence,
+  User,
+} from "firebase/auth";
 
 type Holiday = { title: string; date: string; color?: string };
-type Note = { id?: string; title: string; date: string; color: string; className?: string; allDay?: boolean };
-type GoogleCalendarEvent = { id: string; summary: string; start: { date?: string; dateTime?: string }; end: { date?: string; dateTime?: string }; };
+type Note = {
+  id?: string;
+  title: string;
+  date: string;
+  color: string;
+  className?: string;
+  allDay?: boolean;
+};
+type GoogleCalendarEvent = {
+  id: string;
+  summary: string;
+  start: { date?: string; dateTime?: string };
+  end: { date?: string; dateTime?: string };
+};
 
 const Home = () => {
   const [holidays, setHolidays] = useState<Holiday[]>([]);
@@ -26,46 +48,26 @@ const Home = () => {
   const calendarRef = useRef<FullCalendar | null>(null);
   const containerRef = useRef<HTMLDivElement | null>(null);
 
-useEffect(() => {
-  setPersistence(auth, browserLocalPersistence);
+  useEffect(() => {
+    setPersistence(auth, browserLocalPersistence);
 
-  const unsubscribe = onAuthStateChanged(auth, async (firebaseUser) => {
-    if (firebaseUser) {
-      setUser(firebaseUser);
+    const unsubscribe = onAuthStateChanged(auth, async (firebaseUser) => {
+      if (firebaseUser) {
+        setUser(firebaseUser);
 
-      // ✅ Get Google access token silently
-      const tokenResult = await firebaseUser.getIdTokenResult();
-      const providerData = firebaseUser.providerData.find(
-        (p) => p.providerId === "google.com"
-      );
+        const storedToken = sessionStorage.getItem("google_access_token");
+        if (storedToken) setToken(storedToken);
+      } else {
+        setUser(null);
+        setToken("");
+      }
+    });
 
-      // Access token is returned only during sign-in
-      // So store it immediately during login (see below)
-    } else {
-      setUser(null);
-      setToken("");
-    }
-  });
-
-  return () => unsubscribe();
-}, []);
-
-
-  // 📱 Sign in with Google
-const handleSignIn = async () => {
-  const result = await signInWithPopup(auth, provider);
-
-  const credential = GoogleAuthProvider.credentialFromResult(result);
-  const accessToken = credential?.accessToken;
-
-  if (accessToken) {
-    setToken(accessToken);
-  }
-};
-
+    return () => unsubscribe();
+  }, []);
 
   // 🔐 Sign out
-const handleSignOut = async () => {
+  const handleSignOut = async () => {
     await signOut(auth);
     setUser(null);
     setToken("");
@@ -74,9 +76,11 @@ const handleSignOut = async () => {
   // 📆 Swipe gesture for calendar
   useEffect(() => {
     if (!containerRef.current) return;
-    let touchStartX = 0, touchEndX = 0;
+    let touchStartX = 0,
+      touchEndX = 0;
 
-    const handleTouchStart = (e: TouchEvent) => (touchStartX = e.changedTouches[0].screenX);
+    const handleTouchStart = (e: TouchEvent) =>
+      (touchStartX = e.changedTouches[0].screenX);
     const handleTouchEnd = (e: TouchEvent) => {
       touchEndX = e.changedTouches[0].screenX;
       const calendarApi = calendarRef.current?.getApi();
@@ -100,10 +104,16 @@ const handleSignOut = async () => {
       .then((res) => res.json())
       .then((data) => {
         const gazettedEvents = data.holidays.gazetted.map((h: Holiday) => ({
-          title: h.title, date: h.date, color: "#1e90ff", className: styles.gazettedEvent,
+          title: h.title,
+          date: h.date,
+          color: "#1e90ff",
+          className: styles.gazettedEvent,
         }));
         const restrictedEvents = data.holidays.restricted.map((h: Holiday) => ({
-          title: h.title, date: h.date, color: "#ff4040", className: styles.restrictedEvent,
+          title: h.title,
+          date: h.date,
+          color: "#ff4040",
+          className: styles.restrictedEvent,
         }));
         setHolidays([...gazettedEvents, ...restrictedEvents]);
       })
@@ -154,19 +164,30 @@ const handleSignOut = async () => {
   // ➕ Add a note
   const handleAddNote = async () => {
     if (!noteText || !selectedDate || !user?.email) return;
-    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/notes?user_id=${user.email}`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ title: noteText, date: selectedDate, color: "#32CD32" }),
-    });
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_API_URL}/notes?user_id=${user.email}`,
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          title: noteText,
+          date: selectedDate,
+          color: "#32CD32",
+        }),
+      }
+    );
 
     const data = await res.json();
-    const newNote: Note = { ...data, className: styles.notesClass, allDay: true };
+    const newNote: Note = {
+      ...data,
+      className: styles.notesClass,
+      allDay: true,
+    };
     setNotes((prev) => [...prev, newNote]);
     setNoteText("");
   };
 
-   console.log('calendarEvents',calendarEvents)
+  console.log("calendarEvents", calendarEvents);
 
   const allEvents = [...notes, ...holidays, ...calendarEvents];
 
@@ -177,7 +198,10 @@ const handleSignOut = async () => {
   return (
     <div className="App">
       <div className={styles.flex}>
-        <select className={styles.stateDropdown} onChange={(e) => setSelected(e.target.value)}>
+        <select
+          className={styles.stateDropdown}
+          onChange={(e) => setSelected(e.target.value)}
+        >
           <option value="">Select State</option>
           <option value="br">Bihar</option>
           <option value="ap">Andhra Pradesh</option>
@@ -208,7 +232,20 @@ const handleSignOut = async () => {
           <option value="up">Uttar Pradesh</option>
           <option value="uk">Uttrakhand</option> */}
         </select>
-        <button onClick={handleSignOut} style={{ backgroundColor: "#e63946", color: "white", border: "none", borderRadius: "6px", padding: "6px 12px", cursor: "pointer", fontSize: "14px", fontWeight: 500, height: "36px" }}>
+        <button
+          onClick={handleSignOut}
+          style={{
+            backgroundColor: "#e63946",
+            color: "white",
+            border: "none",
+            borderRadius: "6px",
+            padding: "6px 12px",
+            cursor: "pointer",
+            fontSize: "14px",
+            fontWeight: 500,
+            height: "36px",
+          }}
+        >
           Sign out
         </button>
       </div>
@@ -235,7 +272,9 @@ const handleSignOut = async () => {
           onChange={(e) => setNoteText(e.target.value)}
           className={styles.noteInput}
         />
-        <button onClick={handleAddNote} disabled={!selectedDate}>Add</button>
+        <button onClick={handleAddNote} disabled={!selectedDate}>
+          Add
+        </button>
       </div>
     </div>
   );

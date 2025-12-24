@@ -18,7 +18,9 @@ export default function LoginPage() {
       const result = await signInWithPopup(auth, provider);
       const credential = GoogleAuthProvider.credentialFromResult(result);
       const accessToken = credential?.accessToken;
+      if (!accessToken) return;
 
+      sessionStorage.setItem("google_access_token", accessToken);
       router.push("/");
     } catch (err) {
       console.error("Login failed:", err);
@@ -33,9 +35,9 @@ export default function LoginPage() {
         <h1 style={styles.title}>Calendar App</h1>
 
         <p style={styles.description}>
-          Calendar App allows you to securely connect your Google Calendar
-          and manage events — create, view, update, and delete calendar entries
-          with ease.
+          Calendar App allows you to securely connect your Google Calendar and
+          manage events — create, view, update, and delete calendar entries with
+          ease.
         </p>
 
         <button
@@ -56,10 +58,10 @@ export default function LoginPage() {
           <a href="/terms">Terms of Service</a>
         </footer>
         <p style={styles.meta}>
-        Calendar App is developed and operated by Bharti Pandit.
-        <br />
-        Hosted on Vercel.
-      </p>
+          Calendar App is developed and operated by Bharti Pandit.
+          <br />
+          Hosted on Vercel.
+        </p>
       </div>
     </main>
   );
