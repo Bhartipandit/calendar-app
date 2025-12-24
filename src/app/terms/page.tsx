@@ -6,8 +6,7 @@ const TermsPage = () => {
         <p className="policy-updated">Last updated: January 2025</p>
 
         <p className="policy-section">
-          By using this application, you agree to allow access to your Google Calendar 
-          <strong>for read-only purposes</strong> to display your events. We do not modify 
+          By using this application, you agree to allow access to your Google Calendar <strong>for read-only purposes</strong> to display your events. We do not modify 
           or write to your Google Calendar.
         </p>
 

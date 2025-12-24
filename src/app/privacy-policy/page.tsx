@@ -12,8 +12,7 @@ const PrivacyPolicyPage = () => {
         </p>
 
         <p className="policy-section">
-          Any functionality to read, write, or save events within this app is handled 
-          <strong>separately in the app</strong> and stored securely in our backend.
+          Any functionality to read, write, or save events within this app is handled <strong>separately in the app</strong> and stored securely in our backend.
         </p>
 
         <p className="policy-section">
