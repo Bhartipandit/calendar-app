@@ -1,32 +1,41 @@
 const PrivacyPolicyPage = () => {
   return (
-    <>
-      <h1>Privacy Policy</h1>
+    <main className="policy-container">
+      <div className="policy-card">
+        <h1 className="policy-title">Privacy Policy</h1>
+        <p className="policy-updated">Last updated: January 2025</p>
 
-      <p>
-        This application uses Google OAuth to access Google Calendar data.
-      </p>
+        <p className="policy-section">
+          This application uses Google OAuth to securely access Google Calendar
+          data for the purpose of managing calendar events.
+        </p>
 
-      <p>
-        We only access data necessary to create, read, update, or delete calendar
-        events explicitly requested by the user.
-      </p>
+        <p className="policy-section">
+          We only access data necessary to create, read, update, or delete
+          calendar events explicitly requested by the user.
+        </p>
 
-      <p>
-        We do not store, share, or sell user data to third parties.
-      </p>
+        <p className="policy-section">
+          We do not store, share, or sell user data to third parties.
+          All access is limited to the functionality provided by the app.
+        </p>
 
-      <p>
-        All authentication is handled securely via Google OAuth.
-        No Google account passwords are stored.
-      </p>
+        <p className="policy-section">
+          All authentication is handled securely via Google OAuth.
+          No Google account passwords are collected or stored by this application.
+        </p>
 
-      <p>
-        If you have any questions, contact us at:
-        <br />
-        hello.bhartipandit@gmail.com
-      </p>
-    </>
+        <div className="policy-contact">
+          <p>
+            If you have any questions about this Privacy Policy, contact us at:
+            <br />
+            <a href="mailto:hello.bhartipandit@gmail.com">
+              hello.bhartipandit@gmail.com
+            </a>
+          </p>
+        </div>
+      </div>
+    </main>
   );
 };
 
