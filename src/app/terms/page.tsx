@@ -6,8 +6,14 @@ const TermsPage = () => {
         <p className="policy-updated">Last updated: January 2025</p>
 
         <p className="policy-section">
-          By using this application, you agree to allow access to your Google
-          Calendar only for the features explicitly provided by the app.
+          By using this application, you agree to allow access to your Google Calendar 
+          <strong>for read-only purposes</strong> to display your events. We do not modify 
+          or write to your Google Calendar.
+        </p>
+
+        <p className="policy-section">
+          Any functionality to create, read, or save events within this app is handled 
+          separately and stored securely in the app's backend.
         </p>
 
         <p className="policy-section">

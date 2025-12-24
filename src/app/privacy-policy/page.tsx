@@ -6,13 +6,14 @@ const PrivacyPolicyPage = () => {
         <p className="policy-updated">Last updated: January 2025</p>
 
         <p className="policy-section">
-          This application uses Google OAuth to securely access Google Calendar
-          data for the purpose of managing calendar events.
+          This application uses Google OAuth to securely access Google Calendar data for 
+          the purpose of <strong>reading calendar events only</strong>. We do not modify, 
+          write, or store any events in your Google Calendar.
         </p>
 
         <p className="policy-section">
-          We only access data necessary to create, read, update, or delete
-          calendar events explicitly requested by the user.
+          Any functionality to read, write, or save events within this app is handled 
+          <strong>separately in the app</strong> and stored securely in our backend.
         </p>
 
         <p className="policy-section">

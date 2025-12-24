@@ -35,9 +35,10 @@ export default function LoginPage() {
         <h1 style={styles.title}>Calendar App</h1>
 
         <p style={styles.description}>
-          Calendar App allows you to securely connect your Google Calendar and
-          manage events — create, view, update, and delete calendar entries with
-          ease.
+          Calendar App provides a single place to add any events or notes for any date, 
+          view state-specific holidays based on government circulars (both central and state), 
+          and securely connect your Google Calendar to track other events such as meetings or tickets booked in other apps. 
+          Stay organized and keep all your important dates in one place.
         </p>
 
         <button
@@ -57,11 +58,6 @@ export default function LoginPage() {
           <span>·</span>
           <a href="/terms">Terms of Service</a>
         </footer>
-        <p style={styles.meta}>
-          Calendar App is developed and operated by Bharti Pandit.
-          <br />
-          Hosted on Vercel.
-        </p>
       </div>
     </main>
   );
