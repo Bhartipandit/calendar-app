@@ -203,6 +203,7 @@ const Home = () => {
           onChange={(e) => setSelected(e.target.value)}
         >
           <option value="">Select State</option>
+          <option value="central">Central</option>
           <option value="br">Bihar</option>
           <option value="ap">Andhra Pradesh</option>
           <option value="wb">West Bengal</option>
