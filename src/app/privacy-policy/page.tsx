@@ -6,28 +6,68 @@ const PrivacyPolicyPage = () => {
         <p className="policy-updated">Last updated: January 2025</p>
 
         <p className="policy-section">
-          This application uses Google OAuth to securely access Google Calendar data for 
-          the purpose of <strong>reading calendar events only</strong>. We do not modify, 
-          write, or store any events in your Google Calendar.
+          This application uses Google OAuth 2.0 to access Google Calendar data
+          strictly for displaying calendar events within the app.
         </p>
 
+        <h2 className="policy-subtitle">Data Accessed</h2>
         <p className="policy-section">
-          Any functionality to read, write, or save events within this app is handled <strong>separately in the app</strong> and stored securely in our backend.
+          <p className="policy-section">
+            With your consent, the application accesses the following Google
+            user data:
+          </p>
+          <ul className="policy-list">
+            <li>
+              Google Calendar event details (such as title, date, time, and
+              description)
+            </li>
+            <li>
+              Calendar events created by third-party applications (e.g.,
+              Microsoft Teams, Zoom, Goibibo) as they appear in your Google
+              Calendar
+            </li>
+          </ul>
+        </p>
+        <h2 className="policy-subtitle">How We Use This Data</h2>
+        <p className="policy-section">
+          The accessed Google Calendar data is used solely to:
+        </p>
+        <p className="policy-section">
+          <ul className="policy-list">
+            <li>
+              Display all your calendar events in a single unified calendar view
+            </li>
+            <li>
+              Help you view your overall schedule alongside events you manually
+              add in the app
+            </li>
+          </ul>
+        </p>
+        <p className="policy-section">
+          The application{" "}
+          <strong>does not modify, write, delete, or store</strong> any Google
+          Calendar events. All calendar data is fetched in real time using
+          Google Calendar APIs and displayed temporarily in the user interface.
         </p>
 
+        <h2 className="policy-subtitle">Data Storage and Sharing</h2>
         <p className="policy-section">
-          We do not store, share, or sell user data to third parties.
-          All access is limited to the functionality provided by the app.
+          We do not store Google Calendar event data on our servers. We do not
+          share, sell, or transfer Google user data to any third parties. Any
+          events created directly within the app (not sourced from Google
+          Calendar) are stored separately and securely in our backend.
         </p>
 
+        <h2 className="policy-subtitle">Authentication and Security</h2>
         <p className="policy-section">
-          All authentication is handled securely via Google OAuth.
-          No Google account passwords are collected or stored by this application.
+          Authentication is handled securely via Google OAuth. This application
+          does not collect or store Google account passwords.
         </p>
 
         <div className="policy-contact">
           <p>
-            If you have any questions about this Privacy Policy, contact us at:
+            If you have any questions about this Privacy Policy, please contact
+            us at:
             <br />
             <a href="mailto:hello.bhartipandit@gmail.com">
               hello.bhartipandit@gmail.com
