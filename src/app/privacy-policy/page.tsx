@@ -81,6 +81,22 @@ const PrivacyPolicyPage = () => {
           </ul>
         </p>
 
+        <h2 className="policy-subtitle">
+          Protection of Google User Data Outside Google Systems
+        </h2>
+        <p className="policy-section">
+          Google Calendar data accessed by this application is not stored,
+          persisted, or processed outside of Google’s secure systems. The
+          application does not save Google Calendar data on servers, databases,
+          browser local storage, session storage, cookies, logs, or backups.
+        </p>
+        <p className="policy-section">
+          Google user data is fetched live via Google Calendar APIs and
+          displayed temporarily in memory for the authenticated user only. No
+          other users, administrators, or third parties can access or view a
+          user’s Google Calendar data through this application.
+        </p>
+
         <h2 className="policy-subtitle">Authentication and Security</h2>
         <p className="policy-section">
           Authentication is handled securely via Google OAuth. This application
