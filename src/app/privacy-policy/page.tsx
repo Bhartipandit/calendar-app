@@ -58,10 +58,45 @@ const PrivacyPolicyPage = () => {
           Calendar) are stored separately and securely in our backend.
         </p>
 
+        <h2 className="policy-subtitle">Data Protection and Security</h2>
+        <p className="policy-section">
+          We take appropriate technical and organizational measures to protect
+          Google user data from unauthorized access, loss, misuse, or
+          disclosure.
+        </p>
+        <p className="policy-section">
+          <ul className="policy-list">
+            <li>
+              All data access occurs over secure HTTPS connections using
+              Google-approved OAuth 2.0 protocols.
+            </li>
+            <li>
+              Google OAuth access tokens are used only during active user
+              sessions and are not exposed to third parties.
+            </li>
+            <li>
+              Access to Google user data is restricted strictly to the
+              functionality required to display calendar events within the app.
+            </li>
+          </ul>
+        </p>
+
         <h2 className="policy-subtitle">Authentication and Security</h2>
         <p className="policy-section">
           Authentication is handled securely via Google OAuth. This application
           does not collect or store Google account passwords.
+        </p>
+
+        <h2 className="policy-subtitle">Data Retention and Deletion</h2>
+        <p className="policy-section">
+          This application does not retain or store Google Calendar event data.
+          All Google Calendar data is fetched in real time from Google APIs and
+          displayed temporarily in the user interface.
+        </p>
+        <p className="policy-section">
+          Once the session ends or the user revokes access, the application no
+          longer has access to Google Calendar data. No Google user data is
+          retained, cached, or backed up on our servers.
         </p>
 
         <div className="policy-contact">
