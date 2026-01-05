@@ -73,6 +73,14 @@ const Home = () => {
     setToken("");
   };
 
+  const handleLogin = async () => {
+    const result = await signInWithPopup(auth, provider);
+    const credential = GoogleAuthProvider.credentialFromResult(result);
+    if (credential?.accessToken) {
+      sessionStorage.setItem("google_access_token", credential.accessToken);
+    }
+  };
+
   // 📆 Swipe gesture for calendar
   useEffect(() => {
     if (!containerRef.current) return;
@@ -187,8 +195,6 @@ const Home = () => {
     setNoteText("");
   };
 
-  console.log("calendarEvents", calendarEvents);
-
   const allEvents = [...notes, ...holidays, ...calendarEvents];
 
   // if (!user) {
@@ -233,22 +239,41 @@ const Home = () => {
           <option value="up">Uttar Pradesh</option>
           <option value="uk">Uttrakhand</option> */}
         </select>
-        <button
-          onClick={handleSignOut}
-          style={{
-            backgroundColor: "#e63946",
-            color: "white",
-            border: "none",
-            borderRadius: "6px",
-            padding: "6px 12px",
-            cursor: "pointer",
-            fontSize: "14px",
-            fontWeight: 500,
-            height: "36px",
-          }}
-        >
-          Sign out
-        </button>
+        {user ? (
+          <button
+            onClick={handleSignOut}
+            style={{
+              backgroundColor: "#e63946",
+              color: "white",
+              border: "none",
+              borderRadius: "6px",
+              padding: "6px 12px",
+              cursor: "pointer",
+              fontSize: "14px",
+              fontWeight: 500,
+              height: "36px",
+            }}
+          >
+            Sign out
+          </button>
+        ) : (
+          <button
+            onClick={handleLogin}
+            style={{
+              backgroundColor: "#e63946",
+              color: "white",
+              border: "none",
+              borderRadius: "6px",
+              padding: "6px 12px",
+              cursor: "pointer",
+              fontSize: "14px",
+              fontWeight: 500,
+              height: "36px",
+            }}
+          >
+            Sign in
+          </button>
+        )}
       </div>
 
       <div ref={containerRef}>
