@@ -132,3 +132,76 @@
   color: red !important;
   font-weight: bold;
 }
+
+.tooltip {
+  position: absolute;
+  bottom: 120%;
+  left: 0;
+  width: 260px;
+  background: #ffffff;
+  border-radius: 8px;
+  padding: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(6px);
+  transition: all 0.2s ease;
+  z-index: 20;
+}
+
+.tooltip::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 20px;
+  border-width: 6px;
+  border-style: solid;
+  border-color: #ffffff transparent transparent transparent;
+}
+
+.tooltip p {
+  margin: 0 0 8px;
+  font-size: 14px;
+  color: #333;
+}
+
+.tooltipBtn {
+  width: 100%;
+  background-color: #4285f4;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  @media (min-width: 1024px) {
+    display: none;
+  }
+}
+
+.tooltipBtn:hover {
+  background-color: #357ae8;
+}
+
+.noteWrapper {
+  position: relative;
+  display: flex;
+  gap: 8px;
+  width: 100%;
+}
+
+/* Disabled state */
+.disabledWrapper {
+  cursor: not-allowed;
+}
+
+.disabledWrapper:hover .tooltip {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+/* Color entire Sunday cell */
+.sundayCell {
+  background-color: #fff0f0; // light red background
+}

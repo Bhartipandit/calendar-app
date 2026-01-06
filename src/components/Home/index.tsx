@@ -285,22 +285,43 @@ const Home = () => {
           events={allEvents}
           height="auto"
           dateClick={handleDateClick}
+          dayCellClassNames={(arg) => {
+            if (arg.date.getDay() === 0) {
+              return styles.sundayCell;
+            }
+            return "";
+          }}
         />
       </div>
 
       <legend className={styles.legend}>🔵 Gazetted | 🔴 Restricted</legend>
 
       <div className={styles.noteBox}>
-        <input
-          type="text"
-          placeholder={`Add note or event for ${selectedDate}`}
-          value={noteText}
-          onChange={(e) => setNoteText(e.target.value)}
-          className={styles.noteInput}
-        />
-        <button onClick={handleAddNote} disabled={!selectedDate}>
-          Add
-        </button>
+        <div
+          className={`${styles.noteWrapper} ${
+            !user ? styles.disabledWrapper : ""
+          }`}
+        >
+          <input
+            type="text"
+            placeholder={`Add note or event for ${selectedDate}`}
+            value={noteText}
+            onChange={(e) => setNoteText(e.target.value)}
+            className={styles.noteInput}
+            disabled={!user}
+          />
+          <button onClick={handleAddNote} disabled={!selectedDate && !user}>
+            Add
+          </button>
+          {!user && (
+            <div className={styles.tooltip}>
+              <p>Sign in to add notes or events</p>
+              <button onClick={handleLogin} className={styles.tooltipBtn}>
+                Sign in with Google
+              </button>
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );
