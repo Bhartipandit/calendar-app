@@ -21,5 +21,6 @@ export const auth = getAuth(app);
 // ✅ Google provider instance
 export const provider = new GoogleAuthProvider();
 provider.addScope("https://www.googleapis.com/auth/calendar.readonly");
+provider.addScope("https://www.googleapis.com/auth/calendar.events");
 
 export default app;

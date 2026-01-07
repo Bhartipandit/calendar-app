@@ -304,11 +304,15 @@ const Home = () => {
         >
           <input
             type="text"
-            placeholder={`Add note or event for ${selectedDate}`}
+            placeholder={
+              selectedDate
+                ? `Add note or event for ${selectedDate}`
+                : "Select a date to add an event"
+            }
             value={noteText}
             onChange={(e) => setNoteText(e.target.value)}
             className={styles.noteInput}
-            disabled={!user}
+            disabled={!user || !selectedDate}
           />
           <button onClick={handleAddNote} disabled={!selectedDate && !user}>
             Add
